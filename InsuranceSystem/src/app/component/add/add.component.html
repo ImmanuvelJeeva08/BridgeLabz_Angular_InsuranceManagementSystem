@@ -1,0 +1,128 @@
+<div class="form-content">
+
+    <form class="form" [formGroup]="addInsuranceUser"  #ngForm="ngForm" (ngSubmit)="onSubmit()">
+ 
+       <!--Form Header-->
+       <div class="form-head">
+             <span class="head">INSURANCE FORM</span>
+ 
+             <!--Cancel Button-->
+             <a routerLink="/home">
+                 <img src="../assets/images/cancel.jpeg" alt="" width="3%" id="cancel-icon" class="close" style="float: right">
+             </a>
+         </div>
+ 
+         <!--Name Content with error details-->
+         <div class="column-content">
+             <mat-label class="label text" for="name">Full Name</mat-label>
+             <mat-form-field class="example-full-width" appearance="outline">
+                 <input class="input" matInput ngDefaultControl formControlName="userFullName" type="search" autocomplete="off">
+ 
+                 <mat-error *ngIf="checkError('userFullName', 'required')">Name is required</mat-error>
+                 <mat-error *ngIf="checkError('userFullName', 'pattern')">Name should start with upper case and should have minimum of 3 characters</mat-error>
+             </mat-form-field>
+         </div>
+
+         <div class="column-content">
+            <mat-label class="label text" for="dob">DOB</mat-label>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <!-- <input class="input" type="date" matInput ngDefaultControl [max]="getToday()" formControlName="dob" autocomplete="off"> -->
+
+                <input matInput ngDefaultControl [max]="getToday()"  formControlName="dob" autocomplete="off" [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="checkError('dob', 'required')">DOB is required</mat-error>
+            </mat-form-field>
+        </div>
+
+         <div class="column-content">
+            <mat-label class="label text" for="email">Email</mat-label>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <input class="input" matInput ngDefaultControl formControlName="email" type="text" autocomplete="off">
+
+                <mat-error *ngIf="checkError('email', 'required')">Email is required</mat-error>
+            </mat-form-field>
+        </div>
+
+         <div class="column-content">
+            <mat-label class="label text" for="address">Address</mat-label>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <input class="input" matInput ngDefaultControl formControlName="address" type="text" autocomplete="off">
+
+                <mat-error *ngIf="checkError('address', 'required')">Address is required</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="column-content">
+            <mat-label class="label text" for="mobileNo">Mobile Number</mat-label>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <input class="input" matInput ngDefaultControl formControlName="mobileNo" type="text" autocomplete="off">
+
+                <mat-error *ngIf="checkError('mobileNo', 'required')">mobile number is required</mat-error>
+                <mat-error *ngIf="checkError('mobileNo', 'pattern')">Mobile Number have 10 digits </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="column-content">
+            <mat-label class="label text" for="insuranceAmountPerMonth">Insurance Amount Per Month</mat-label>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <input class="input" matInput ngDefaultControl formControlName="insuranceAmountPerMonth" type="number" autocomplete="off">
+
+                <mat-error *ngIf="checkError('insuranceAmountPerMonth', 'required')">Insurance Per Month is required</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="column-content">
+            <mat-label class="label text" for="insuranceYear">InsuranceYear</mat-label>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <input class="number" matInput ngDefaultControl formControlName="insuranceYear" type="number" autocomplete="off">
+
+                <mat-error *ngIf="checkError('insuranceYear', 'required')">InsuranceYear is required</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="column-content">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>VehicleModel</mat-label>
+                <mat-select formControlName="vehicleModel">
+                  <mat-option *ngFor="let model of vehicleModelLsit" [value]="model.value">
+                    {{model.viewValue}} 
+                  </mat-option>
+                </mat-select>
+
+            </mat-form-field>
+        </div>
+
+
+        <div class="column-content">
+            <mat-label class="label text" for="vehicleNo">VehicleNo</mat-label>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <input class="number" matInput ngDefaultControl formControlName="vehicleNo" type="text" autocomplete="off">
+
+                <mat-error *ngIf="checkError('vehicleNo', 'required')">VehicleNo is required</mat-error>
+                <mat-error *ngIf="checkError('vehicleNo', 'pattern')">VehicleNo Format INVALID</mat-error>
+                <mat-label>Ex.Format: TN 72 JA 9282</mat-label>
+            </mat-form-field>
+        </div>
+
+        <div class="column-content">
+            <mat-label class="label text" >Vehicle Type</mat-label>
+            <mat-radio-group [ngClass]="{'invalid': ngForm.submitted && addInsuranceUser.get('vehicleType').invalid}" formControlName="vehicleType" >  
+                <mat-radio-button value="car">Car</mat-radio-button>  
+                <mat-radio-button style="margin-left: 70px;" value="bike">Bike</mat-radio-button>
+                <!-- <mat-error *ngIf="checkError('vehicleType', 'required')">InsuranceYear is required</mat-error>   -->
+            </mat-radio-group> 
+        </div>
+
+        <!--Buttons: Add and Edit buttons based on the url page opened-->
+        <div class="add-reset">
+            <button mat-raised-button type="submit" class="addButton button" id="addButton">Sumbit</button>
+            <button mat-raised-button type="reset" class="resetButton button">Reset</button>
+            <a routerLink="/home">
+                <button mat-raised-button color="accent" class="button cancelButton">Cancel</button>
+            </a>
+        </div>
+    </form>
+ 
+ </div>
+ 

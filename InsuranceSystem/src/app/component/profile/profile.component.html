@@ -1,0 +1,99 @@
+<div class="fully">
+<header class="ScriptHeader">
+    <div class="rt-container">
+    	<div class="col-rt-12">
+        	<div class="rt-heading">
+            	<h1>Insurance Management System </h1>
+                <p>User Profile page</p>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section>
+    <div class="rt-container">
+          <div class="col-rt-12">
+              <div class="Scriptcontent">
+              
+<!-- Student Profile -->
+<div class="student-profile py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card shadow-sm">
+          <div class="card-header bg-transparent text-center">
+            <img class="profile_img" src="https://source.unsplash.com/600x300/?student" alt="student dp">
+            <h3>{{userName}}</h3>
+          </div>
+          <div class="card-body">
+            <p class="mb-0"><strong class="pr-1">vehicleModel:</strong>{{this.user.vehicleModel}}</p>
+            <p class="mb-0"><strong class="pr-1">vehicleNo:</strong>{{this.user.vehicleNo}}</p>
+            <p class="mb-0"><strong class="pr-1">InsuranceYear:</strong>{{this.user.insuranceYear}}</p>
+            <p class="mb-0"><strong class="pr-1">InsuranceAmountPerMonth:</strong>{{this.user.insuranceAmountPerMonth}}</p>
+            <p class="mb-0"><strong class="pr-1">Vehicle Type:</strong>{{this.user.vehicleType}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+      <form [formGroup]="editUser" >
+        <div class="card shadow-sm">
+          <div class="card-header bg-transparent border-0">
+            <h3 class="mb-0"><i class="far fa-clone pr-1"></i>General Information</h3>
+            <a (click)="onEdit()"><h4 style="float: right;margin-right: 10px;cursor: pointer;">EDIT</h4></a>
+          </div>
+          <div class="card-body pt-0">
+            <table class="table table-bordered">
+              <tr>
+                <th width="30%">UserName</th>
+                <td width="2%">:</td>
+                <input type="text" formControlName="userFullName" [readonly]="inactive">
+              </tr>
+              <tr>
+                <th width="30%">DOB</th>
+                <td width="2%">:</td>
+                <input type="text" formControlName="dob" [readonly]="inactive">
+              </tr>
+              <tr>
+                <th width="30%">Email</th>
+                <td width="2%">:</td>
+                <input type="text" formControlName="email" [readonly]="inactive">
+              </tr>
+              <tr>
+                <th width="30%">Address</th>
+                <td width="2%">:</td>
+                <input type="text" formControlName="address" [readonly]="inactive">
+              </tr>
+              <tr>
+                <th width="30%">Mobile</th>
+                <td width="2%">:</td>
+                <input type="text" formControlName="mobileNo" [readonly]="inactive">
+              </tr>
+            </table>
+            <button mat-raised-button [hidden]="enableEdit" (click)="update()"> UPDATE</button>
+            <button mat-raised-button style="margin-left: 20px;" [hidden]="enableEdit" (click)="cancel()"> Cancel</button>
+          </div>
+        </div>
+    </form>
+
+          <div style="height: 26px"></div>
+        <div class="card shadow-sm">
+          <div class="card-header bg-transparent border-0">
+            <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Other Information</h3>
+          </div>
+          <div class="card-body pt-0">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- partial -->
+           
+    		</div>
+		</div>
+    </div>
+</section>
+
+</div>
+     

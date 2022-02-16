@@ -1,0 +1,33 @@
+.head2{
+    height: 80%;
+}
+
+.head1{
+    background-color: rgb(7, 168, 115);
+}
+
+h1{
+    padding-top: 100px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+span{
+    color: blue;
+}
+
+.foot {
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #333; 
+    color:#FFF;
+}
+
+.cp-text{ 
+    color: rgba(0,0,0,.7); 
+    text-shadow: 0 1px rgba(255, 255, 255, 0.1);
+    padding: 20px 550px;
+    background-color: #333;
+    color:#FFF;
+}
+

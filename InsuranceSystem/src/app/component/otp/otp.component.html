@@ -1,0 +1,17 @@
+
+<div class="head">
+
+    <mat-card style="margin: 0px 200px;">
+
+        <div>
+            <h1>OTP VERIFICATION.... </h1><br>
+        </div>
+        <div>
+            <ng-otp-input (keyup)="onOtpChange($event)" ></ng-otp-input>
+        </div>
+    
+        <button mat-button class="button" color="primary" (click)="otps()">Submit</button>
+
+    </mat-card>
+    
+</div>

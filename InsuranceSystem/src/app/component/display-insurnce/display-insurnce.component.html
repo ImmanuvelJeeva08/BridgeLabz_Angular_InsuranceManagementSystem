@@ -1,0 +1,52 @@
+<div class="main-content">
+    <div class="header-content">
+
+        <div class="emp-detail-text">
+            Insurance Details
+
+            <div class="emp-count">{{insuranceCount}}</div>
+        </div>
+
+    </div>
+
+    <!--Contains the table structure of the User details
+        When the get method is hit in the HTTP server, the employee details get populated in the tabular form.
+    -->
+    <div class="table-main">
+        <table id ="display" class="table">
+            <tr>
+                <!--Table header-->
+                <th>Name</th>
+                <th>DOB</th>
+                <th>Mobile</th>
+                <th>InsuranceAmount</th>
+                <th>InsuranceYear</th>
+                <th>VehicleModel</th>
+                <th>VehicleNo</th>
+                <th>Actions</th>
+            </tr>
+
+            <!--*ngFor : iterates inside the userDetails object list, and returns the user object value-->
+            <tr *ngFor="let user of insuranceDetails ">
+            
+                <td>{{user.userFullName}}</td>
+                <td>{{user.dob}}</td>
+                <td>{{user.mobileNo}}</td>
+                <td>{{user.insuranceAmountPerMonth}}</td>
+                <td>{{user.insuranceYear}}</td>
+                <td>{{user.vehicleModel}}</td>
+                <td>{{user.vehicleNo}}</td>                
+
+                <!--To update and delete an user from the database-->
+                <td>
+                     
+                    <img id={{user.empId}} (click)="remove(user.userId)"
+                        src="../assets/icons/delete-black-18dp.svg"
+                        alt="delete">
+                    <img id={{user.userId}} (click)="update(user)" 
+                        src="../assets/icons/create-black-18dp.svg" alt="edit">
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+
+<div class="section bg2">
+    <h1>Insurance Management System </h1>
+    <div class="bg">
+      <a (click)="logout()" [routerLink]="[ '/login']">
+        <h3 style="text-align:right;">LOG OUT</h3>
+      </a>
+    </div>
+  </div>
+
+  
+
+<div class="container red topBotomBordersOut">
+    <a [routerLink]="[ '/add']">  BUY NEW INSURANCE</a>
+    <a [routerLink]="[ '/claim']">  CLAIM INSURANCE</a>
+    <a [routerLink]="[ '/profile']"> USER PROFILE</a>
+    <a [hidden]="claimstatus" [routerLink]="[ '/claimStatus']"> STATUS</a>
+  </div>
+
+  <mat-card>
+      <p>In insurance, the insurance policy is a contract between the insurer and the policyholder, which determines the claims which the insurer is legally required to pay. In exchange for an initial payment, known as the premium, the insurer promises to pay for loss caused by perils covered under the policy language.</p>
+    <img src="../assets/images/insurance1.jpg" alt="">
+  </mat-card>
+
+  <div class="foot-head">
+    <div class="foot">
+      <div>
+        <p>Find US</p>
+        <p>7, AmbedkarStreet, Chennai</p>
+      </div>
+      <div>
+        <p>Contact US</p>
+        <p>9792718288</p>
+      </div>
+      <div>
+        <p>Mail US</p>
+        <p>immanuekl@gmail.com</p>
+      </div>  
+      
+    </div>
+    <p class="cp-text">
+      © Copyright 2015 Company Name. All rights reserved.
+  </p>
+  </div>
+  
