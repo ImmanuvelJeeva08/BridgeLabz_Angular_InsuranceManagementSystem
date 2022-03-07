@@ -43,6 +43,7 @@ export class ProfileComponent implements OnInit {
   editUser : FormGroup;
   inactive = true;
   userEdit = new User();
+  option = 1;
   enableEdit = true;
   jwt :string;
   num =2 ;
@@ -89,7 +90,7 @@ export class ProfileComponent implements OnInit {
         console.log(data);
       
       })
-      this.router.navigateByUrl('/otp/' +this.num);      
+      this.router.navigateByUrl('/otp/'+this.option);      
   }
 
   cancel(){

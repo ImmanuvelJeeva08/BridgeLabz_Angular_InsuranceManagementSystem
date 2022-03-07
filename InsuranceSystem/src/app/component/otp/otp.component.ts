@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/model/user';
+import { Userlogin } from 'src/app/model/userlogin';
 import { InsuranceService } from 'src/app/service/insurance.service';
 import { UserService } from 'src/app/service/user.service';
 
@@ -20,45 +21,32 @@ export class OtpComponent implements OnInit {
     private insuranceService : InsuranceService
   ) { }
 
+  first : any = "";
+  second : any = "";
+  third : any = "";
+  four : any = "";
+  otpValue : string = "";
+  otpSend = new Userlogin();
   otp : string;
   otpN : string = "";
   otpDefault : number =3333;
-  option : number;
   jwt : string;
+  option : number;
   editResult = new User();
+  email : any;
 
   ngOnInit(): void {
-  this.option = this.route.snapshot.params['id'];
-   console.log(this.route.snapshot.params['id']);
-  }
-
-
-  onOtpChange($event){
-    console.log($event.target.value);
-    this.otp = $event.target.value;
-    this.otpN = this.otpN + this.otp;
-    console.log("OTP = "+this.otpN);
-    console.log("Length = ",this.otpN.length);
-  }
-
-  otps(){
-    console.log("Call");
-
-    if(this.otpN.length === 4){
-      if(this.option == 1){
-          this.userService.otpVerification(this.otpN).subscribe(data => {
-            console.log(data);
-            this.router.navigateByUrl("/login");
-            this.matSnackBar.open('OTP Sucessfully Verified','ok',{
-              duration : 3000
-            })
-        },
-        error => {alert(' enter valid OTP Number ');}
-      )
-      }if(this.option == 2){
-        this.jwt = localStorage.getItem('jwtToken');
+    this.option = this.route.snapshot.params['id'];
+    this.jwt = localStorage.getItem('jwtToken');
         this.jwt = "Bearer "+this.jwt;
-        this.insuranceService.otpVerification(this.otpN,this.jwt).subscribe(data=>{
+  }
+
+  onSubmit(){
+    console.log("Call");
+    if(this.first != "" && this.second != "" && this.third != "" && this.four != "" ){
+      this.otpSend.otp = this.first + this.second + this.third + this.four;
+      if(this.option == 1){
+        this.insuranceService.otpVerification(this.otpSend,this.jwt).subscribe(data=>{
           console.log(data);
           this.editResult = Object.values(data)[0];
           console.log(this.editResult);
@@ -69,14 +57,33 @@ export class OtpComponent implements OnInit {
         localStorage.setItem("loginUser", JSON.stringify(this.editResult))
         this.router.navigateByUrl('/profile');
         })
-        
-        console.log(this.editResult);
-      
+      }else if(this.option == 2){
+        this.userService.otpForPasswordReset(this.otpSend).subscribe(data=>{
+          console.log(data);
+          this.matSnackBar.open("OTP sucessfully Verified...","OK",{
+            duration : 3000
+          })
+          this.router.navigateByUrl("resetpassword");
+        })
       }
-      
+        
     }else{
-      alert('Please Enter 4 digit Number');
-    }
+        console.log("Not Verified");
+        this.matSnackBar.open('Please Enter 4 Digit Number','OK',{
+          duration : 3000
+        })
+      }
   }
 
+  resendOTP(){
+    this.otpSend.email = "immanuveljeeva2000@gmail.com";
+    this.userService.resendOtp(this.otpSend,this.jwt).subscribe(data=>{
+        console.log(data);
+    },error=>{
+      this.matSnackBar.open('OTP not send! Something went wrong','OK',{
+        duration : 3000
+      })
+    }
+    )
+  }
 }

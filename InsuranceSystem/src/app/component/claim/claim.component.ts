@@ -68,12 +68,10 @@ export class ClaimComponent implements OnInit {
 
     this.insuranceService.claimInsurance(this.claimUser,this.jwt).subscribe(data=>{
       console.log(data);
-      localStorage.setItem('claimedUser', JSON.stringify(Object.values(data)[0]))
       this.matSnackBar.open('Sucessfully Applied your Insurance','OK',{
         duration : 5000
       })
       this.router.navigate(["/home"]);
-
     })
   }
 

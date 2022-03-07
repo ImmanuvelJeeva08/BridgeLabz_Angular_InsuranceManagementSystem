@@ -1,17 +1,20 @@
 
-<div class="head">
-
-    <mat-card style="margin: 0px 200px;">
-
-        <div>
-            <h1>OTP VERIFICATION.... </h1><br>
+<mat-card fxLayoutAlign="center center" style="background-color: rgb(14, 146, 207);">
+    <div >
+        <h3>Please enter the 4-digit verification code we sent via Email </h3>
+        <div class="head" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px" >
+            <input type="text" maxlength="1" [(ngModel)]="first" style="width:5vw; height:5vw" autocomplete="off">
+            <input type="text" maxlength="1" [(ngModel)]="second" style="width:5vw; height:5vw" autocomplete="off">
+            <input type="text" maxlength="1" [(ngModel)]="third" style="width:5vw; height:5vw" autocomplete="off">
+            <input type="text" maxlength="1" [(ngModel)]="four" style="width:5vw; height:5vw" autocomplete="off">
+        </div><br><br>
+        <div fxLayoutAlign="center">
+            <button (click)="onSubmit()" class="btn btn-primary btn-embossed">Verify</button>
         </div>
         <div>
-            <ng-otp-input (keyup)="onOtpChange($event)" ></ng-otp-input>
+            <div class="text-center mt-1"><span class="d-block mobile-text">Don't receive the code?</span><span style="color: rgb(240, 210, 213);" (click)="resendOTP()" class="font-weight-bold text-danger cursor">Resend</span></div>
         </div>
+    </div>
     
-        <button mat-button class="button" color="primary" (click)="otps()">Submit</button>
+</mat-card>
 
-    </mat-card>
-    
-</div>

@@ -1,20 +1,22 @@
 
-<div class="section bg2">
-    <h1>Insurance Management System </h1>
+<!-- <div class="section bg2">
+    <h1>INSURANCE MANAGEMENT SYSTEM </h1>
     <div class="bg">
       <a (click)="logout()" [routerLink]="[ '/login']">
         <h3 style="text-align:right;">LOG OUT</h3>
       </a>
     </div>
-  </div>
+  </div> -->
 
   
 
 <div class="container red topBotomBordersOut">
-    <a [routerLink]="[ '/add']">  BUY NEW INSURANCE</a>
-    <a [routerLink]="[ '/claim']">  CLAIM INSURANCE</a>
-    <a [routerLink]="[ '/profile']"> USER PROFILE</a>
+    <a [hidden]="newIns" [routerLink]="[ '/add']">  BUY NEW INSURANCE</a>
+    <a [hidden]="claimIns" [routerLink]="[ '/claim']">  CLAIM INSURANCE</a>
+    <a [hidden]="profile" [routerLink]="[ '/profile']"> USER PROFILE</a>
     <a [hidden]="claimstatus" [routerLink]="[ '/claimStatus']"> STATUS</a>
+    <a [hidden]="admin" [routerLink]="[ '/display']"> DISPLAYALL</a>
+    <a [routerLink]="[ '/login']">Log out</a>
   </div>
 
   <mat-card>

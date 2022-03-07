@@ -42,11 +42,26 @@ export class LoginComponent implements OnInit {
     console.log(this.insuranceUser);
     this.userService.login(this.insuranceUser.value).subscribe(data => {
       console.log(data);
-      localStorage.setItem('jwtToken', data.jwttoken);
-      console.log(data.loginUser);
-          localStorage.setItem('loginUser', JSON.stringify(data.loginUser));
+      if(data.hasOwnProperty('data')){
+        if( data.data.username === "admin" && data.data.password === "admin"){
+          console.log("admin");
+          localStorage.setItem('admin', 'admin');
+          localStorage.setItem('jwtToken', data.msg);
+        }
+        else{
+          this.matSnackBar.open('User credentials Invalid' , 'ok', {
+            duration: 1000
+          });
+        }
+      }
+      else{
+        localStorage.setItem('jwtToken', data.jwttoken);
+        console.log(data.loginUser);
+        localStorage.setItem('loginUser', JSON.stringify(data.loginUser));
+      }
+
       this.matSnackBar.open('User credentials verified Sucessfully' , 'ok', {
-        duration: 3000
+        duration: 1000
       });
       this.router.navigateByUrl("/home");
     },

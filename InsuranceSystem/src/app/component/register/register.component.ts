@@ -47,10 +47,10 @@ export class RegisterComponent implements OnInit {
 
     this.userService.register(this.registerUser.value).subscribe(data => {
       console.log(data);
-      this.router.navigateByUrl('/otp/' +this.num);
-      this.matSnackBar.open('Sucessfully Registered' , 'ok', {
+      this.matSnackBar.open('Sucessfully send ActivationLink to Given EmailId' , 'ok', {
         duration: 3000
       });
+      this.router.navigateByUrl('/login');
     },
     error => {alert(' enter valid user credentials ');}
     )

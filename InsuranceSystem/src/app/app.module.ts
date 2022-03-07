@@ -13,30 +13,32 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './component/home/home.component';
 import { AddComponent } from './component/add/add.component';
 import { ClaimComponent } from './component/claim/claim.component';
-import {MatInputModule} from '@angular/material/input';
-import {MatCardModule} from '@angular/material/card';
-import {MatIconModule} from '@angular/material/icon';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatInputModule} from '@angular/material/input';
+import { MatCardModule} from '@angular/material/card';
+import { MatIconModule} from '@angular/material/icon';
+import { MatExpansionModule} from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
-import {MatTooltipModule} from '@angular/material/tooltip';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatSnackBarModule } from '@angular/material/snack-bar';
-import {MatBadgeModule} from '@angular/material/badge';
-import {MatSelectModule} from '@angular/material/select';
-import {MatStepperModule} from '@angular/material/stepper';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatTooltipModule} from '@angular/material/tooltip';
+import { MatMenuModule} from '@angular/material/menu';
+import { MatToolbarModule} from '@angular/material/toolbar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatBadgeModule} from '@angular/material/badge';
+import { MatSelectModule} from '@angular/material/select';
+import { MatStepperModule} from '@angular/material/stepper';
+import { MatCheckboxModule} from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
 import { NgOtpInputModule } from 'ng-otp-input';
 import { OtpComponent } from './component/otp/otp.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { ExloginComponent } from './component/exlogin/exlogin.component';
 import { MatButtonToggleModule, MatRadioModule } from '@angular/material';
 import { ProfileComponent } from './component/profile/profile.component';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/core';
+import { MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule} from '@angular/material/core';
 import { ClaimstatusComponent } from './component/claimstatus/claimstatus.component';
+import { NgDisableLinkModule } from 'ng-disable-link';
+import { ForgetpasswordComponent } from './component/forgetpassword/forgetpassword.component';
+import { ResetpasswordComponent } from './component/resetpassword/resetpassword.component';
 
 
 @NgModule({
@@ -49,14 +51,16 @@ import { ClaimstatusComponent } from './component/claimstatus/claimstatus.compon
     AddComponent,
     ClaimComponent,
     OtpComponent,
-    ExloginComponent,
     ProfileComponent,
-    ClaimstatusComponent
+    ClaimstatusComponent,
+    ForgetpasswordComponent,
+    ResetpasswordComponent
   ],
   imports: [
     BrowserModule,
     FlexLayoutModule,
     FormsModule,
+    NgDisableLinkModule,
     MatButtonToggleModule,
     MatNativeDateModule,
     MatDatepickerModule,

@@ -50,7 +50,6 @@ export class AddComponent implements OnInit {
 
   getToday() {
     this.today.setFullYear( this.today.getFullYear() - 18 );
-    console.log(this.today);
 }
 
 onSubmit(){

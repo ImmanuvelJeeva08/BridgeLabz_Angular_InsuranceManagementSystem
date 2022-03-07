@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Claim } from '../model/claim';
@@ -23,40 +23,34 @@ export class InsuranceService {
   addNewInsurance(newInsurance : User,jwt : string) : Observable<any> {
     console.log(jwt)
     const header= new HttpHeaders()
-      .set('content-type', 'application/json')
-      .set('Access-Control-Allow-Origin', '*')
       .set('Authorization',jwt);
     return this.httpClient.post(this.baseURL + "user" , newInsurance,  { headers: header });
   }
 
   editUser(editUser: User,jwt: string) : Observable<any>{
-    console.log("Edit user iD =" + editUser.userId)
     const header= new HttpHeaders()
-      .set('content-type', 'application/json')
-      .set('Access-Control-Allow-Origin', '*')
       .set('Authorization',jwt);
     return this.httpClient.put(this.baseURL + "user" , editUser, { headers: header });
   }
 
   claimInsurance(claimUser: Claim,jwt : string) {
-    console.log(claimUser);
-    console.log(jwt);
     const header= new HttpHeaders()
-      .set('content-type', 'application/json')
-      .set('Access-Control-Allow-Origin', '*')
       .set('Authorization',jwt);
     return this.httpClient.post(this.baseURL1 + "claimInsurance", claimUser, { headers: header })
   }
 
-  otpVerification(otpN: string,jwt : string) {
-    console.log(otpN);
-    console.log(jwt);
+  otpVerification(otp: any,jwt : string) {
     const header= new HttpHeaders()
-      .set('content-type', 'application/json')
-      .set('Access-Control-Allow-Origin', '*')
       .set('Authorization',jwt);
-    var y = JSON.parse(otpN);
-    this.userlogin.otp = y;
-      return this.httpClient.post(this.baseURL + "otp",this.userlogin, { headers: header })
+      return this.httpClient.post(this.baseURL + "otp", otp, { headers: header })
+  }
+
+  getClaimedDetailsbyEmail(email : string, jwt: string){
+    const header= new HttpHeaders()
+      .set('Authorization',jwt);
+    return this.httpClient.get(this.baseURL1 + "claimedById", { 
+      headers: header,
+      params: new HttpParams().append('email', email),
+     })
   }
 }

@@ -9,7 +9,7 @@
             <div fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="flex-start" style="background-color: #A03037; padding-top: 16px;">
                 <h2 class="title">Insurance System</h2>
             </div>
-            <h2>Sign in</h2>
+            <h2>Sign Up</h2>
             <p>Use your Insurance Account</p>
         </div>
         <div class="alert alert-danger text-justify" [hidden]="!error">{{error}}</div>
@@ -36,18 +36,8 @@
             
             <br>
             <div class="text-right">
-                <a>
-                <button type="submit" style="
-                background-color: #a03037;
-                border-radius: 5px;
-                text-decoration-color:#FFFFFF;
-                font-size: 20px;
-                font-weight: 500;
-                color: whitesmoke;
-                width: 106px;
-                height: 40px;"
-                  
-                id="registrationBtn" mat-raised-button>Register</button></a>
+                <a><button type="submit" mat-raised-button>Register</button></a>
+                <a><button class="login" mat-raised-button routerLink="/login">Login</button></a>
             </div>
         </form>
     </mat-card>

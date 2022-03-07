@@ -1,10 +1,13 @@
 .title {
-    text-align: left;
     font: Regular 20px/26px Roboto;
-    letter-spacing: 0px;
+    letter-spacing: 2px;
     color: #FFFFFF;
     text-transform: capitalize;
     opacity: 1;
+}
+
+a{
+    color: #a03037;
 }
 
 .imgLogo {
@@ -12,4 +15,15 @@
     width: 31px;
     height: 24px;
     opacity: 1;
+}
+
+.submit{
+    background-color: #a03037;
+    border-radius: 5px;
+    text-decoration-color:#FFFFFF;
+    font-size: 20px;
+    font-weight: 500;
+    color: whitesmoke;
+    width: 106px;
+    height: 40px;
 }

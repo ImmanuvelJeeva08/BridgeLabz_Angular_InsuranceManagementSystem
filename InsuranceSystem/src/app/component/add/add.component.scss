@@ -3,6 +3,10 @@
     box-sizing: border-box;
 }
 
+.form-field{
+    margin-top: 20px;
+}
+
 .form-content {
     padding-top: 40px;
     display:flex;
@@ -10,12 +14,16 @@
     align-items: center;
     border: 0px solid green;
     background: rgba(0,0,0,.5);
-    
+    padding-bottom: 150px;
+}
 
+.type{
+    margin-left: 30px;
 }
 
 .form {
-    width: 55%;
+    width: 50%;
+    height: 100%;
     background:white 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #00000029;
     border-radius: 8px;
@@ -43,51 +51,6 @@
     padding-left: 30px;
 }
 
-.column-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 40px;
-    margin-left: 100px;
-    margin-right: 100px;
-}
-
-.column-content-style {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-left: 100px;
-    margin-right: 100px;
-}
-
-.example-full-width {
-    width: 100%;
-}
-
-label {
-    padding: 12px;
-    display: inline-block;
-}
-
-.text {
-    font-size: 16px;
-    color: red;
-    font-family: Robonto;
-}
-
-.row-content-address {
-    display: flex;
-    flex-direction: row;
-    margin-left: 100px;
-    margin-right: 100px;
-}
-
-.subAddress {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
 .city {
     padding : 10px;
     margin-top: 20px;
@@ -106,20 +69,9 @@ label {
     margin-left: 100px;
 }
 
-
-.add-reset {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: right;
-    margin-bottom: 40px;
-    padding-top: 40px;
-    padding-left: 320px;
-    padding-right: 90px;
-}
-input[type=file]{
-    width:90px;
-    color:transparent;
+.add-reset{
+    margin-left: 240px;
+    padding-bottom: 20px;
 }
 
 .button {
@@ -129,13 +81,12 @@ input[type=file]{
     opacity: 1;
     font-weight: 400;
     min-width: 140px;
-    padding: 7px 7px;
+    padding: 1px 1px;
     cursor: pointer;
-    color: #42515F;
-    background: #E2E2E2 0% 0% no-repeat padding-box;
+    color: #010911;
     border: 1px solid #969696;
     border-radius: 5px;
-    margin: 0px 100px 0px 20px;
+    margin: 10px 100px 0px 20px;
     margin-inline: 10px;    
 }
 
